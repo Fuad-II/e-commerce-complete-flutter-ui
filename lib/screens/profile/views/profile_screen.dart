@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shop/components/list_tile/divider_list_tile.dart';
 import 'package:shop/components/network_image_with_loader.dart';
@@ -107,6 +107,13 @@ class ProfileScreen extends StatelessWidget {
             svgSrc: "assets/icons/Preferences.svg",
             press: () {
               Navigator.pushNamed(context, preferencesScreenRoute);
+            },
+          ),
+          ProfileMenuListTile(
+            text: "Catalog CMS",
+            svgSrc: "assets/icons/Setting.svg",
+            press: () {
+              Navigator.pushNamed(context, cmsScreenRoute);
             },
           ),
           const SizedBox(height: defaultPadding),

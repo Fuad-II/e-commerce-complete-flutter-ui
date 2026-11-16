@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shop/entry_point.dart';
 
 import 'screen_export.dart';
@@ -190,6 +190,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case profileScreenRoute:
       return MaterialPageRoute(
         builder: (context) => const ProfileScreen(),
+      );
+    case cmsScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const CmsScreen(),
       );
     // case getHelpScreenRoute:
     //   return MaterialPageRoute(

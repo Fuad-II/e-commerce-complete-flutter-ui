@@ -1,4 +1,6 @@
 // For demo only
+import 'dart:convert';
+
 import 'package:shop/constants.dart';
 
 class ProductModel {
@@ -14,6 +16,64 @@ class ProductModel {
     required this.price,
     this.priceAfetDiscount,
     this.dicountpercent,
+  });
+
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    String requiredString(String key) {
+      final value = json[key];
+      if (value is! String || value.trim().isEmpty) {
+        throw FormatException('"$key" must be a non-empty string.');
+      }
+      return value;
+    }
+
+    double? optionalPrice(String key) {
+      final value = json[key];
+      if (value == null) return null;
+      if (value is! num) {
+        throw FormatException('"$key" must be a number or null.');
+      }
+      return value.toDouble();
+    }
+
+    final price = json['price'];
+    if (price is! num) {
+      throw const FormatException('"price" must be a number.');
+    }
+
+    final discountPercent = json['discountPercent'];
+    if (discountPercent != null && discountPercent is! int) {
+      throw const FormatException(
+          '"discountPercent" must be an integer or null.');
+    }
+
+    return ProductModel(
+      image: requiredString('image'),
+      brandName: requiredString('brandName'),
+      title: requiredString('title'),
+      price: price.toDouble(),
+      priceAfetDiscount: optionalPrice('priceAfterDiscount'),
+      dicountpercent: discountPercent as int?,
+    );
+  }
+}
+
+List<ProductModel> productModelFromJson(String jsonData) {
+  final decoded = jsonDecode(jsonData);
+  if (decoded is! List<dynamic>) {
+    throw const FormatException('The catalog must be a JSON array.');
+  }
+
+  return List<ProductModel>.generate(decoded.length, (index) {
+    final item = decoded[index];
+    if (item is! Map<String, dynamic>) {
+      throw FormatException('Product at index $index must be a JSON object.');
+    }
+    try {
+      return ProductModel.fromJson(item);
+    } on FormatException catch (error) {
+      throw FormatException('Product at index $index: ${error.message}');
+    }
   });
 }
 
@@ -65,6 +125,7 @@ List<ProductModel> demoPopularProducts = [
     dicountpercent: 5,
   ),
 ];
+
 List<ProductModel> demoFlashSaleProducts = [
   ProductModel(
     image: productDemoImg5,
@@ -91,6 +152,7 @@ List<ProductModel> demoFlashSaleProducts = [
     dicountpercent: 15,
   ),
 ];
+
 List<ProductModel> demoBestSellersProducts = [
   ProductModel(
     image: "https://i.imgur.com/tXyOMMG.png",
@@ -117,6 +179,7 @@ List<ProductModel> demoBestSellersProducts = [
     dicountpercent: 15,
   ),
 ];
+
 List<ProductModel> kidsProducts = [
   ProductModel(
     image: "https://i.imgur.com/dbbT6PA.png",

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../constants.dart';
 
@@ -66,7 +66,7 @@ class CartButton extends StatelessWidget {
                     child: Container(
                       alignment: Alignment.center,
                       height: double.infinity,
-                      color: Colors.black.withOpacity(0.15),
+                      color: Colors.black.withValues(alpha: 0.15),
                       child: Text(
                         title,
                         style: Theme.of(context)

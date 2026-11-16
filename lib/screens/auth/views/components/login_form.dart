@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../constants.dart';
@@ -38,7 +38,7 @@ class LogInForm extends StatelessWidget {
                           .textTheme
                           .bodyLarge!
                           .color!
-                          .withOpacity(0.3),
+                          .withValues(alpha: 0.3),
                       BlendMode.srcIn),
                 ),
               ),
@@ -65,7 +65,7 @@ class LogInForm extends StatelessWidget {
                           .textTheme
                           .bodyLarge!
                           .color!
-                          .withOpacity(0.3),
+                          .withValues(alpha: 0.3),
                       BlendMode.srcIn),
                 ),
               ),

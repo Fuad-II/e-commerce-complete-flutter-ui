@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import '/components/network_image_with_loader.dart';
 
 import '../../../../constants.dart';
@@ -85,7 +85,7 @@ class _ProductImagesState extends State<ProductImages> {
                               .textTheme
                               .bodyLarge!
                               .color!
-                              .withOpacity(index == _currentPage ? 1 : 0.2),
+                              .withValues(alpha: index == _currentPage ? 1 : 0.2),
                         ),
                       ),
                     ),

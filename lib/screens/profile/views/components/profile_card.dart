@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/components/network_image_with_loader.dart';
 
@@ -69,7 +69,7 @@ class ProfileCard extends StatelessWidget {
       trailing: isShowArrow
           ? SvgPicture.asset(
               "assets/icons/miniRight.svg",
-              color: Theme.of(context).iconTheme.color!.withOpacity(0.4),
+              color: Theme.of(context).iconTheme.color!.withValues(alpha: 0.4),
             )
           : null,
     );

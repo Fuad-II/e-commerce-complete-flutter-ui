@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../constants.dart';
@@ -33,7 +33,7 @@ class NotifyMeCard extends StatelessWidget {
                       .textTheme
                       .bodyLarge!
                       .color!
-                      .withOpacity(0.1),
+                      .withValues(alpha: 0.1),
             ),
           ),
           child: Padding(
@@ -70,7 +70,7 @@ class NotifyMeCard extends StatelessWidget {
                 CupertinoSwitch(
                   onChanged: onChanged,
                   value: isNotify,
-                  activeColor: primaryMaterialColor.shade900,
+                  activeTrackColor: primaryMaterialColor.shade900,
                 )
               ],
             ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -30,7 +30,7 @@ class ReviewCard extends StatelessWidget {
       padding: const EdgeInsets.all(defaultPadding),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Theme.of(context).textTheme.bodyLarge!.color!.withOpacity(0.035),
+        color: Theme.of(context).textTheme.bodyLarge!.color!.withValues(alpha: 0.035),
         borderRadius:
             const BorderRadius.all(Radius.circular(defaultBorderRadious)),
       ),
@@ -65,7 +65,7 @@ class ReviewCard extends StatelessWidget {
                       .textTheme
                       .bodyLarge!
                       .color!
-                      .withOpacity(0.08),
+                      .withValues(alpha: 0.08),
                   glow: false,
                   allowHalfRating: true,
                   ignoreGestures: true,
@@ -131,7 +131,7 @@ class RateBar extends StatelessWidget {
                     .textTheme
                     .bodyLarge!
                     .color!
-                    .withOpacity(0.05),
+                    .withValues(alpha: 0.05),
                 value: value,
               ),
             ),

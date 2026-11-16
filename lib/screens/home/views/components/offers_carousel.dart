@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shop/components/Banner/M/banner_m_style_1.dart';
 import 'package:shop/components/Banner/M/banner_m_style_2.dart';
 import 'package:shop/components/Banner/M/banner_m_style_3.dart';

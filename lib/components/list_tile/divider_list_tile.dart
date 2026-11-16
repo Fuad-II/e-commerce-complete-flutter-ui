@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DividerListTile extends StatelessWidget {
@@ -30,7 +30,7 @@ class DividerListTile extends StatelessWidget {
               ? SvgPicture.asset(
                   "assets/icons/miniRight.svg",
                   colorFilter: ColorFilter.mode(
-                      Theme.of(context).iconTheme.color!.withOpacity(0.4),
+                      Theme.of(context).iconTheme.color!.withValues(alpha: 0.4),
                       BlendMode.srcIn),
                 )
               : null,
@@ -82,7 +82,7 @@ class DividerListTileWithTrilingText extends StatelessWidget {
                 SvgPicture.asset(
                   "assets/icons/miniRight.svg",
                   colorFilter: ColorFilter.mode(
-                      Theme.of(context).iconTheme.color!.withOpacity(0.4),
+                      Theme.of(context).iconTheme.color!.withValues(alpha: 0.4),
                       BlendMode.srcIn),
                 ),
               ],
